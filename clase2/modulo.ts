@@ -1,4 +1,4 @@
-export class Operaciones {
+export default class Operaciones {
   private num1: number;
   private num2: number;
   private operaciones: string;

@@ -1,14 +1,14 @@
-import { Operaciones } from "./modulo"
-
-const moduloOperacion = "./modulo"
-
-const operacion = (num1: number, num2: number, operaciones: 'string') => {
-  return new Promise((resolve, reject) => {
-    import(moduloOperacion).then((modulo) => {
-      const operaciones = new Operaciones(num1, num2, operaciones)
-      resolve(modulo.resultado(num1, num2, operaciones));
-    })
-      .catch(console.error)
+const operacion = (num1: number, num2: number, operaciones: string) => {
+  const moduloOperacion: any = import("./modulo")
+  import(`./${moduloOperacion}`)
+    .then(module => module.Operaciones)
+  const op: any = new moduloOperacion.Operaciones(num1, num2, operaciones).resultado()
+  const promiseOperation = new Promise((resolve, reject) => {
+    if (op != NaN) {
+      resolve(op)
+    } else {
+      reject(new Error(op))
+    }
   })
 }
 
