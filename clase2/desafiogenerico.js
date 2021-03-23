@@ -13,5 +13,7 @@ const objetoSaludar = {
 
 const Saludar = async () => {
   console.log('Arranca la función')
-  console.log(Object.entries(objeto));
+  console.log(Object.entries(objetoSaludar));
 }
+
+Saludar()
