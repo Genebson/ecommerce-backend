@@ -1,7 +1,3 @@
-// Realizar tres llamadas a la función con porciones de texto que tienen que ser representados 
-// en forma ordenada. Inicialmente todas las palabras del primero, luego las del segundo y 
-// finalmente las del tercero.
-
 const ejemplo1 = "Marolio le da sabor a tu vida. Marolio esta desde el comienzo del dia."
 
 const ejemplo2 = "Mate, café. Harina y palmitos. Yerba, mermelada. Cacao, picadillo"
