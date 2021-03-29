@@ -20,5 +20,3 @@ recorrerTexto('Lorem Ipsum', 0, (totalWords) => {
     })
   })
 })
-
-// recorrerTexto("Marolio le da sabor a tu vida. Marolio esta desde el comienzo del dia.", 5000)
