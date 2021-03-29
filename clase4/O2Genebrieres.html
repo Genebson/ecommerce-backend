@@ -5,11 +5,57 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Observables 2</title>
 </head>
 
 <body>
+  <input type="text" id="text" />
+  <label id="texto-invertido"></label>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/6.6.6/rxjs.umd.min.js"
+    integrity="sha512-r0R52UFUS1Wx7K9DKFCzPkZbmB0xVXJjc/sk9JByGAcHH2VXrj3tKBzmoYp9PgJm8xRVHlfjvDYN4mG7mhnv4w=="
+    crossorigin="anonymous"></script>
+  <script>
 
-</body>
+    const { Observable, fromEvent } = rxjs;
+    const { map } = rxjs.operators;
+    const keyup = fromEvent(document.getElementById("text"), 'keyup');
+    const mapText = keyup.pipe(map(ev => ev.target.value.split("").reverse().join("")));
+
+    function writeReverse() {
+      return new Observable(subscriber => {
+        mapText.subscribe(x => {
+          document.getElementById("texto-invertido").innerHTML = x;
+          if (x == 'rorrE') {
+            subscriber.error('Error');
+          }
+          if (x == 'otelpmoC') {
+            subscriber.complete();
+          }
+        });
+        return () => {
+          console.log('Unsubscribe');
+          document.getElementById("text").value = '';
+          document.getElementById("texto-invertido").innerHTML = '';
+          document.getElementById("text").disabled = true;
+        }
+      }
+      )
+    }
+
+    let suscriptor = writeReverse()
+      .subscribe(
+        () => console.log('Init'),
+        error => console.log(error),
+        () => console.log('Completo')
+      );
+
+    setTimeout(() => {
+      suscriptor.unsubscribe();
+    }, 30000)
+
+  </script>
+
+  <body>
+  </body>
 
 </html>
