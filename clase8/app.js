@@ -1,4 +1,5 @@
 const express = require('express');
+const router = require('./routes/products');
 const app = express();
 const port = 3333;
 const server = app.listen(port, () => { console.log(`Server inicializado en puerto http://localhost:${server.address().port}`); });
@@ -8,5 +9,5 @@ app.use(express.urlencoded({ extended: true }));
 server.on(`error`, error => console.log(`Server error ${error}`));
 
 
-
+app.use('api', router)
 app.use('/api', productRoutes);
