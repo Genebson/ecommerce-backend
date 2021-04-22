@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Teclado Thermaltake TT eSports Challenger Prime 3 LED",
+    "price": 3399,
+    "thumbnail": "https://i.ibb.co/Zf40F5d/imagen.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Mouse HyperX Pulsefire Haste RGB 16000 DPI",
+    "price": 4699,
+    "thumbnail": "https://i.ibb.co/cCshx6J/imagen-1.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Silla Gamer Redragon C502 Capricornus Black",
+    "price": 30999,
+    "thumbnail": "https://i.ibb.co/R6yQfXt/imagen-2.jpg"
+  }
+]

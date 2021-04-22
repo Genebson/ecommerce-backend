@@ -13,7 +13,7 @@
   },
   {
   "id": 3,
-  "title": "Silla Gamer Redragon C502 Capricornus Black,
+  "title": "Silla Gamer Redragon C502 Capricornus Black",
   "price": 30999,
   "thumbnail": "https://i.ibb.co/R6yQfXt/imagen-2.jpg"
   }
