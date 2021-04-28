@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Ingreso de Productos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+</head>
+
+<body class="p-4">
+  <h1>Lista de Productos</h1>
+  <% if(productos.error){ %>
+    <p class="alert alert-primary">No hay productos cargados</p>
+    <% } else { %>
+      <table class="table table-borderless table-hover table-responsive align-middle">
+        <thead>
+          <tr>
+            <th scope="col">Producto</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Imagen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% productos.forEach(producto=> { %>
+            <tr>
+              <td class="align-middle">
+                <%= producto.title %>
+              </td>
+              <td class="align-middle">$<%= producto.price %>
+              </td>
+              <td class="align-middle">
+                <img src="<%= producto.thumbnail %>" alt="<%= producto.title %>" class="w-25" />
+              </td>
+            </tr>
+            <% }); %>
+        </tbody>
+        <caption>
+          Productos disponibles
+        </caption>
+      </table>
+      <% } %>
+</body>
+
+</html>
