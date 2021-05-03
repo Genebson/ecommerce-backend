@@ -1,0 +1,21 @@
+doctype html
+head
+  meta(charset='utf-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  title Ingreso de Productos
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous')
+body.p-2
+  .container 
+    h1.mb-2 Formularios de Ingreso
+    .row
+      .col-sm-12.col-md-6.col-lg-4.mt-4
+        h2.text-center Ingreso de Producto
+        form#form-producto(action='/api/productos/' method='post')
+          .form-group
+            input#title.form-control(type='text' name='title' placeholder='Nombre')
+          .form-group
+            input#price.form-control(type='number' name='price' placeholder='Precio')
+          .form-group
+            input#thumbnail.form-control(type='text' name='thumbnail' placeholder='URL imagen')
+          button.btn.btn-block.btn-primary Ingresar
