@@ -4,20 +4,55 @@ const express=require('express');
 const app = express();
 const path=require('path');
 const router = express.Router();
-const server = require('http').Server(app);
+const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 const fs = require('fs').promises;
 
-let PRODUCTS_DB = [];
-let CHAT_DB = [];
+declare namespace Express {
+    interface Request {
+        user: any,
+    }
+    interface Response {
+        sendFile: any;
+        render: any;
+        user: any,
+    }
+}
+
 app.set("views", "./views");
 app.set("view engine", "ejs");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+interface Producto {
+    title: string,
+    price: string, 
+    thumbnail: string,
+    id: number,
+    socketid: string
+}
+
+interface Message {
+    email: string,
+    timestamp: string, 
+    mensaje: string,
+}
+
+/* let producto: Producto = {
+    title: "",
+    price: "", 
+    thumbnail: "",
+    id: 0,
+    socketid: ""
+} */
+
+let PRODUCTS_DB:Array<Producto> = [];
+let CHAT_DB:Array<Message> = [];
+
+
 app.use('/api', router);
-app.get("/api/productos/vista", (req, res) => {
+app.get("/api/productos/vista", (req: Express.Request, res:Express.Response) => {
     res.render('../views/layout.ejs', { 
         title: "Datos de productos",
         data: PRODUCTS_DB,
@@ -26,10 +61,10 @@ app.get("/api/productos/vista", (req, res) => {
        });
 });
 
-io.on('connection', (socket) => {
-    socket.on('productos', (producto) => {
+io.on('connection', (socket:any) => {
+    socket.on('productos', (producto: Producto) => {
       io.emit('productos', producto);
-      newProducto = {
+      let newProducto: Producto = {
           title: producto.title,
           price: producto.price, 
           thumbnail: producto.thumbnail,
@@ -41,9 +76,9 @@ io.on('connection', (socket) => {
     });
 
 
-    socket.on('cliente-mensaje', async (message) => {
+    socket.on('cliente-mensaje', async (message:Message) => {
         io.emit('server-mensaje', message)
-        let messageFile = {
+        let messageFile: Message = {
             email: message.email,
             timestamp: message.timestamp,
             mensaje: message.mensaje
@@ -63,7 +98,7 @@ io.on('connection', (socket) => {
 app.use(express.static('public'))
 
 
-app.get('*', (req, res) =>{
+app.get('*', (req:Express.Request, res:Express.Response) =>{
     res.sendFile(path.resolve('public/404.html'));
 });
 
@@ -72,4 +107,4 @@ const srv = server.listen(PORT, () => {
 })
 
 
-srv.on("error", error => console.log(`Error en servidor ${error}`))
+srv.on("error", (error?:string) => console.log(`Error en servidor ${error}`))

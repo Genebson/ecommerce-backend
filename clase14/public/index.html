@@ -1,79 +1,51 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="/main.js"></script>
-  <title>Desafio 12</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafío Backend 🚀</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+
 </head>
 
-<body class="p-3 mb-2 bg-secondary text-white">
-  <script>
-    function asegurar() {
-      rc = confirm("¿Seguro que desea Eliminar?");
-      return rc;
-    }
-  </script>
-  <div class="container">
-    <h1 class="p-3 mb-2 bg-dark text-white text-center border border-white shadow p-3 mb-5 rounded">BIENVENIDOS AL
-      DESAFIO 13</h1>
-    <span class="fs-2">Crear un producto</span>
-    <form action="/api/productos" method="POST">
-      <div class="mb-3 mt-3">
-        <label for="title" class="form-label">Título</label>
-        <input required type="text" class="form-control" id="title" name="title" placeholder="Nombre del Producto">
-      </div>
-      <div class="mb-3">
-        <label for="price" class="form-label">Precio</label>
-        <input required type="number" class="form-control" id="price" name="price" placeholder="Precio del Producto">
-      </div>
-      <div class="mb-3">
-        <label for="thumbnail" class="form-label">Imagen</label>
-        <input required type="text" class="form-control" id="thumbnail" name="thumbnail"
-          placeholder="URL de la imagen Producto">
-      </div>
-      <button type="submit" class="btn btn-dark border border-white shadow rounded">CREAR</button>
-    </form>
-  </div>
-  </div>
-  <div class="mt-5 container text-dark p-2">
-    <h2 class="p-3 bg-dark text-white text-center border border-white shadow p-3 mb-5 rounded">VISTA PRODUCTOS</h2>
-    <table class="table table-dark" id="table">
-      <thead>
-        <tr>
-          <th scope="col">NOMBRE</th>
-          <th scope="col">PRECIO</th>
-          <th scope="col">IMAGEN</th>
-          <th scope="col">EDITAR</th>
-          <th scope="col">ELIMINAR</th>
-        </tr>
-      </thead>
-      <tbody id="tableProd">
+<body>
+    <div style="background: rgb(233, 153, 206);">
+        <h1 style="text-align: center;">Desafio 14</h1>
+        <h2 style="text-align: center;">Mauricio Genebrieres - Backend</h2>
+    </div>
+    <div class="container">
+        <p>Sobre el proyecto que venimos realizando, renombrar el archivo del servidor server.js a server.es6.js.
+            Generar así mismo, otro archivo de servidor llamado server.ts donde se utilice el lenguaje Typescript para
+            tipar ese módulo.
+        </p>
+        <ul>
+            <li>Instalar Babel y Typescript como dependencias de desarrollo y crear dos script en el package.json
+                llamados ServerES6toJS5 y ServerTStoJS5, que permitan lanzar los procesos automáticos de conversiones
+                respectivas sobre los archivo del servidor creados (server.es6.js y server.ts) a JS5. Los archivos de
+                salida en ambos casos se llamarán server.js.</li>
+            <li>Adecuar el proyecto y los módulos importados para permitir compatibilidades de importación y exportación
+                (agregar flag ‘--esModuleInterop’ al comando tsc para prevenir errores!).</li>
+            <li>Probar que el servidor funcione correctamente en ambos casos.</li>
+        </ul>
+        <h2>Scripts a utilizar</h2>
+        <p><strong>npm run start</strong> => funciona el script traspilado de Typescript </p>
+        <p><strong>npm run startIndex</strong> => funciona el script traspilado de server.es6.js en server.js ubicado en
+            carpeta dist </p>
 
-      </tbody>
-    </table>
-    <h3 id="aviso"></h3>
-  </div>
-  <div class="mt-5 container text-dark p-2">
-    <h2 class="p-3 bg-dark text-white text-center border border-white shadow p-3 mb-5 rounded"> CENTRO DE MENSAJES </h2>
-    <form class="text-center sticky-top" onsubmit="return addMessage(this)" autocomplete="off">
-      <div class="mb-3">
-        <input type="email" id="userName" placeholder="ejemplo@ejemplo.com" required>
-      </div>
-      <div class="text-center" id="messages"></div>
-      <div class="mb-3">
-        <input onfocus="this.value=''" type="text" id="texto" placeholder="Mensaje" required>
-      </div>
-      <div class="mb-3">
-        <input class="btn btn-dark" type="submit" value="Enviar">
-      </div>
-    </form>
-  </div>
+        <a href="api/productos/vista" class="btn btn-outline-primary">Ir a formulario para ingresar producto y
+            chatear!</a>
+        <br>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"></script>
+
 </body>
 
 </html>
