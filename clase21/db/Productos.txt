@@ -1,0 +1,12 @@
+[
+	{
+		"_id": 1,
+		"nombre": "Roberto",
+		"descripcion": "Sos excelente",
+		"timestamp": "06/06/2021",
+		"codigo": "GHD4578",
+		"precio": 46,
+		"foto": "http://.com",
+		"stock": 30
+	}
+]
